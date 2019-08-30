@@ -4,7 +4,6 @@ RUN apt update && \
     apt install -y wget git build-essential libz-dev gzip ca-certificates curl libbz2-dev liblzma-dev libncurses5-dev libncursesw5-dev zlib1g-dev python3 python3-pkg-resources autoconf libcurl4-gnutls-dev \
     && rm -rf /var/lib/apt/lists/*
 
-
 # Install Htslib
 RUN wget https://github.com/samtools/htslib/releases/download/1.9/htslib-1.9.tar.bz2 \
     && tar -jxvf htslib-1.9.tar.bz2 \
