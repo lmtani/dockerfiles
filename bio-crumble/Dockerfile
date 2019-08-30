@@ -26,7 +26,6 @@ RUN wget https://github.com/samtools/samtools/releases/download/$SAMTOOLS_VERSIO
   && make \
   && make install
 
-
 # Install crumble
 ENV CRUMBLE_VERSION="0.8.3"
 RUN wget https://github.com/jkbonfield/crumble/releases/download/v${CRUMBLE_VERSION}/crumble-${CRUMBLE_VERSION}.tar.gz \
