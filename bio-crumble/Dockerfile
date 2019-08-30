@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 RUN apt update && \
     apt install -y wget git build-essential libz-dev gzip ca-certificates curl libbz2-dev liblzma-dev libncurses5-dev libncursesw5-dev zlib1g-dev python3 python3-pkg-resources autoconf libcurl4-gnutls-dev \
@@ -29,9 +29,10 @@ RUN wget https://github.com/samtools/samtools/releases/download/$SAMTOOLS_VERSIO
   && make install
 
 # Install crumble
-RUN wget https://github.com/jkbonfield/crumble/releases/download/v0.8.1/crumble-0.8.1.tar.gz \
-  && tar -xf crumble-0.8.1.tar.gz \
-  && cd crumble-0.8.1 \
+ENV CRUMBLE_VERSION="0.8.3"
+RUN wget https://github.com/jkbonfield/crumble/releases/download/v${CRUMBLE_VERSION}/crumble-${CRUMBLE_VERSION}.tar.gz \
+  && tar -xf crumble-${CRUMBLE_VERSION}.tar.gz \
+  && cd crumble-${CRUMBLE_VERSION} \
   && ./configure --with-htslib=/htslib-1.9 \
   && make \
   && make install

@@ -5,8 +5,5 @@
 ## Common execution
 
 ```
-samtools view -H sample.bam > header.sam
-samtools view -bh sample.bam \* > unplaced.bam
-parallel --gnu "crumble -O BAM -r {} sample.bam output.{#}.bam" :::: contigs.txt
-samtools cat -h header.sam -o sample_crumbled.bam $(ls output*.bam)
+crumble -z -v -9 -O cram,reference=/ref/human_g1k_v37_decoy.fasta,lossy_names,seqs_per_slice=100000,nthreads=4 alignment.bam alignment_nv9_lossnames.cram
 ```
