@@ -12,7 +12,6 @@ RUN wget https://github.com/samtools/htslib/releases/download/1.9/htslib-1.9.tar
     && make \
     && make install
 
-
 ENV LD_LIBRARY_PATH=/usr/local/lib
 
 # Setup ENV variables SAMTOOLS
